@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import { Link as SLink } from 'react-scroll';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import logo  from './images/logo.png';
 
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -18,6 +19,14 @@ import { logout } from "./slices/auth";
 import EventBus from "./common/EventBus";
 
 const App = () => {
+  const [nav,setnav]= useState(false);
+const changeBachground = ()=>{
+    if (window.scrollY >= 50){
+        setnav(true);}
+        else{
+            setnav(false)
+        }}
+        window.addEventListener('scroll',changeBachground);
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
 
@@ -49,9 +58,23 @@ const App = () => {
   return (
     <Router>
       <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <nav className={ nav ? "nav active" : "nav"}>
+      <SLink  to="main" className='logo' smooth={true} duration={2000}>
+        <img src={logo} alt=''></img>
+    </SLink>
+    <input className='menu-btn' type='checkbox' id='menu-btn' />
+    <label className='menu-icon' for='menu-btn'></label>
+    <span className='nav-icon'></span>
+    
+    <ul className='menu'>
+        <li><SLink to='main' smooth={true} duration={1000}>Home</SLink></li>
+        <li><SLink to='features' smooth={true} duration={1000}>Villes</SLink></li>
+       <li><SLink to='#' smooth={true} duration={1000}>Offer</SLink></li>
+        <li><SLink to='about' smooth={true} duration={1000}>About</SLink></li>
+        <li><SLink to='contact' smooth={true} duration={1000}>Contact</SLink></li>
+    </ul>
           <Link to={"/"} className="navbar-brand">
-            bezKoder
+            
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -87,35 +110,35 @@ const App = () => {
 
           {currentUser ? (
             <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+              <li >
                 <Link to={"/profile"} className="nav-link">
                   {currentUser.username}
                 </Link>
               </li>
-              <li className="nav-item">
+              <li >
                 <a href="/login" className="nav-link" onClick={logOut}>
                   LogOut
                 </a>
               </li>
             </div>
           ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
+< div className='menu'>
+              <li >
                 <Link to={"/login"} className="nav-link">
                   Login
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li >
                 <Link to={"/register"} className="nav-link">
                   Sign Up
                 </Link>
               </li>
-            </div>
+              </div>   
           )}
         </nav>
 
-        <div className="container mt-3">
+        <div >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />

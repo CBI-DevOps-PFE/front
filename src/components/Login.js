@@ -9,6 +9,11 @@ import { clearMessage } from "../slices/message";
 
 const Login = () => {
   let navigate = useNavigate();
+  const [isHidden, setIsHidden] = useState(false);
+
+  const toggleVisibility = () => {
+    setIsHidden(!isHidden);
+  };
 
   const [loading, setLoading] = useState(false);
 
@@ -51,6 +56,10 @@ const Login = () => {
   }
 
   return (
+    // <div className={`login-container ${isHidden ? 'hidden' : ''}`}>
+    //   <button className="toggle-button" onClick={toggleVisibility}>
+    //     <span>&#9733;JOIN US</span>
+    //   </button>
     <div className="col-md-12 login-form">
       <div className="card card-container">
         <img
@@ -104,6 +113,7 @@ const Login = () => {
         </div>
       )}
     </div>
+  //  </div>
   );
 };
 

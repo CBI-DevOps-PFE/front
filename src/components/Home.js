@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
-
 import UserService from "../services/user.service";
 
+import Navbar from "./Navbar";
+import Header from "./Header";
+import Feature from "./Villes";
+import About from "./About";
+import Contact from "./Contact";
+import HotelSearch from "./HotelSearch";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Login from "./Login";
 const Home = () => {
   const [content, setContent] = useState("");
 
@@ -22,12 +29,17 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
+    <div >
+      
+      <Header/>
+      <Feature/>
+      <About/>
+      <Contact/>
+      
     </div>
   );
 };
 
 export default Home;
+
+
