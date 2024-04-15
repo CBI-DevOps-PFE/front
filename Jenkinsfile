@@ -1,39 +1,23 @@
-pipeline{
-    agent any
-    environment{
-        dockerImage=''
-        registry='bounajia/frontend-projet:v2.0'
-        registryCredential = 'dockerhub_id'
-    }
-    stages{
-        stage('checkout'){
-        steps    {
-            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/frontend.git']])
-    }
-    
-}
-        stage('build docker img'){
-            steps{
-                
-                script{
-                    dockerImage = docker.build registry
-                }
-                
-                }
-            }
-            
-        stage('uploading img'){
-            steps{
-                script{
-                    docker.withRegistry('',registryCredential){
-                        dockerImage.push()
-                    }
-                    
-                }
-            }
-        }    
-            
+node {     
+      def app      
+      stage('Clone deposit') {                
+             
+            checkout  'https://github.com/CBI-DevOps-PFE/front.git'
+      }     
+      stage('Construire une image') {          
+       
+            app = docker.build("bounajia/frontend-projet")     
+       }     
+      stage('Image de test') {           
+            app.inside {             
+             
+             sh 'echo "Tests réussis"'         
+            }     
+        }     
+       stage('Push image') { 
+                                                  docker.withRegistry('https://registry.hub.docker.com', 'git') {            
+       app.push("${env.BUILD_NUMBER}")             
+       app.push("latest")         
+              }     
+           } 
         }
-}
-        
-    
