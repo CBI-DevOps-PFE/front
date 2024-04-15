@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         dockerImage=''
-        registry='bounajia/frontend-projet:v4.0'
+        registry='bounajia/frontend-projet:v2.0'
         registryCredential = 'dockerhub_id'
     }
     stages{
