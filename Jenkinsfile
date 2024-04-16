@@ -3,8 +3,8 @@ pipeline {
     
     environment {
         // Define environment variables if needed
-        DOCKER_REGISTRY = 'docker.io'
-        IMAGE_TAG = 'v2.0'
+        DOCKER_REGISTRY = 'bounajia'
+        IMAGE_TAG = 'frontend-projet:v2.0'
     }
     
     stages {
