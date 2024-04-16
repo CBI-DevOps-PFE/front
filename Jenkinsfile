@@ -2,22 +2,19 @@ pipeline {
     agent any
     
     environment {
-        // Define environment variables if needed
         DOCKER_REGISTRY = 'docker.io'
-        IMAGE_TAG = 'bounajia/frontend-projet:v2.0'
+        IMAGE_TAG = 'yourusername/yourimage:latest'
     }
     
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your source code from version control
-                git 'https://github.com/CBI-DevOps-PFE/front.git'
+                git 'https://github.com/CBI-DevOps-PFE/frontend.git'
             }
         }
         
         stage('Build') {
             steps {
-                // Build the Docker image
                 script {
                     docker.build("${DOCKER_REGISTRY}/${IMAGE_TAG}")
                 }
@@ -26,14 +23,13 @@ pipeline {
         
         stage('Test') {
             steps {
-                // Run tests if available (optional)
-                sh 'npm test'
+                sh 'npm install' // Install project dependencies
+                sh 'npm test'    // Run tests
             }
         }
         
         stage('Push to Registry') {
             steps {
-                // Push the Docker image to your Docker registry
                 script {
                     docker.withRegistry("${DOCKER_REGISTRY}", 'dockerhub_id') {
                         docker.image("${DOCKER_REGISTRY}/${IMAGE_TAG}").push()
@@ -45,15 +41,11 @@ pipeline {
     
     post {
         success {
-            // Actions to perform if the pipeline succeeds
             echo 'Pipeline succeeded! Your Docker image is built and pushed to the registry.'
-            // You can trigger further actions like deploying to production or sending notifications.
         }
         
         failure {
-            // Actions to perform if the pipeline fails
             echo 'Pipeline failed! Please check the build logs.'
-            // You can trigger notifications, rollback deployments, etc.
         }
     }
 }
