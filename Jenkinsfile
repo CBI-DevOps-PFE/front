@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_REGISTRY = 'docker.io'
+        DOCKER_REGISTRY = 'https://hub.docker.com'
         IMAGE_TAG = 'bounajia/frontend-projet:v2.0'
     }
     
