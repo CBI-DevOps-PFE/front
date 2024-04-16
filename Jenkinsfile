@@ -23,7 +23,7 @@ pipeline{
             }
   stage('Test') {
             steps {
-                sh 'npm install' // Install project dependencies
+               // sh 'npm install' // Install project dependencies
                sh 'npm test'    // Run tests
             }
         }
