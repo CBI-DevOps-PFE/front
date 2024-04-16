@@ -1,51 +1,43 @@
-pipeline {
+pipeline{
     agent any
-    
-    environment {
-        DOCKER_REGISTRY = 'https://hub.docker.com'
-        IMAGE_TAG = 'bounajia/frontend-projet:v2.0'
+    environment{
+        dockerImage=''
+        registry='bounajia/frontend-projet:v2.0'
+        registryCredential = 'dockerhub_id'
+    }
+    stages{
+        stage('checkout'){
+        steps    {
+            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/frontend.git']])
     }
     
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/CBI-DevOps-PFE/frontend.git'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                script {
-                    docker.build("${DOCKER_REGISTRY}/${IMAGE_TAG}")
+}
+        stage('build docker img'){
+            steps{
+                
+                script{
+                    dockerImage = docker.build registry
+                }
+                
                 }
             }
-        }
-        
-        stage('Test') {
+  stage('Test') {
             steps {
                 sh 'npm install' // Install project dependencies
                 sh 'npm test'    // Run tests
             }
         }
-        
-        stage('Push to Registry') {
-            steps {
-                script {
-                    docker.withRegistry("${DOCKER_REGISTRY}", 'dockerhub_id') {
-                        docker.image("${DOCKER_REGISTRY}/${IMAGE_TAG}").push()
+            
+        stage('uploading img'){
+            steps{
+                script{
+                    docker.withRegistry('',registryCredential){
+                        dockerImage.push()
                     }
+                    
                 }
             }
+        }    
+            
         }
-    }
-    
-    post {
-        success {
-            echo 'Pipeline succeeded! Your Docker image is built and pushed to the registry.'
-        }
-        
-        failure {
-            echo 'Pipeline failed! Please check the build logs.'
-        }
-    }
 }
