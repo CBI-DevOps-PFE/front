@@ -1,38 +1,59 @@
-pipeline{
+pipeline {
     agent any
-    environment{
-        dockerImage=''
-        registry='bounajia/frontend-projet:v2.0'
-        registryCredential = 'dockerhub_id'
-    }
-    stages{
-        stage('checkout'){
-        steps    {
-            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/frontend.git']])
+    
+    environment {
+        // Define environment variables if needed
+        DOCKER_REGISTRY = 'docker.io'
+        IMAGE_TAG = 'v2.0'
     }
     
-}
-        stage('build docker img'){
-            steps{
-                
-                script{
-                    dockerImage = docker.build registry
-                }
-                
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout your source code from version control
+                git 'https://github.com/CBI-DevOps-PFE/front.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Build the Docker image
+                script {
+                    docker.build("${DOCKER_REGISTRY}/${IMAGE_TAG}")
                 }
             }
-            
-        stage('uploading img'){
-            steps{
-                script{
-                    docker.withRegistry('',registryCredential){
-                        dockerImage.push()
+        }
+        
+        stage('Test') {
+            steps {
+                // Run tests if available (optional)
+                sh 'npm test'
+            }
+        }
+        
+        stage('Push to Registry') {
+            steps {
+                // Push the Docker image to your Docker registry
+                script {
+                    docker.withRegistry("${DOCKER_REGISTRY}", 'dockerhub_id') {
+                        docker.image("${DOCKER_REGISTRY}/${IMAGE_TAG}").push()
                     }
-                    
                 }
             }
         }
     }
+    
+    post {
+        success {
+            // Actions to perform if the pipeline succeeds
+            echo 'Pipeline succeeded! Your Docker image is built and pushed to the registry.'
+            // You can trigger further actions like deploying to production or sending notifications.
+        }
+        
+        failure {
+            // Actions to perform if the pipeline fails
+            echo 'Pipeline failed! Please check the build logs.'
+            // You can trigger notifications, rollback deployments, etc.
+        }
+    }
 }
-            
-            
