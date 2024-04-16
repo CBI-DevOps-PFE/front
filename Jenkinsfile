@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         DOCKER_REGISTRY = 'docker.io'
-        IMAGE_TAG = 'yourusername/yourimage:latest'
+        IMAGE_TAG = 'bounajia/frontend-projet:v2.0'
     }
     
     stages {
