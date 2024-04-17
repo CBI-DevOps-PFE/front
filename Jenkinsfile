@@ -14,11 +14,11 @@ pipeline{
 }
         stage('build docker img'){
             steps{
-                
+                   steps{
                 script{
                     dockerImage = docker.build registry
                 }
-                
+                   }
                 }
             }
  stage('Test des dépendances installées') {
