@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         dockerImage=''
-        registry='bounajia/front-app:v1.0'
+        registry='bounajia/frontend-projet:tagname'
         registryCredential = 'dockerhub_id'
     }
     stages{
@@ -21,18 +21,12 @@ pipeline{
                 
                 }
             }
- stage('Test des dépendances installées') {
+  stage('Test') {
             steps {
-                script {
-                    // Vérifie si les dépendances sont présentes dans le répertoire node_modules
-                    if (fileExists('node_modules')) {
-                        echo 'Les dépendances ont été installées correctement.'
-                    } else {
-                        error 'Les dépendances n\'ont pas été installées correctement.'
-                    }
-                }
+                sh 'npm install' // Install project dependencies
+              // sh 'npm test'    // Run tests
             }
-        
+        }
             
         stage('uploading img'){
             steps{
@@ -46,5 +40,4 @@ pipeline{
         }    
             
         }
-}
 }
