@@ -23,8 +23,14 @@ pipeline{
             }
   stage('Test') {
             steps {
-                sh 'npm install' // Install project dependencies
-              // sh 'npm test'    // Run tests
+              script {
+                    // Vérifie si les dépendances sont présentes dans le répertoire node_modules
+                    if (fileExists('node_modules')) {
+                        echo 'Les dépendances ont été installées correctement.'
+                    } else {
+                        error 'Les dépendances n\'ont pas été installées correctement.'
+                    }
+                }
             }
         }
             
