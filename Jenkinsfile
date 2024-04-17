@@ -5,13 +5,21 @@ pipeline{
         registry='bounajia/frontend-projet:tagname'
         registryCredential = 'dockerhub_id'
     }
-    stages{
-        stage('checkout'){
-        steps    {
-            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/frontend.git']])
-    }
+ stage('Test des dépendances installées') {
+            steps {
+                script {
+                    // Vérifie si les dépendances sont présentes dans le répertoire node_modules
+                    if (fileExists('node_modules')) {
+                        echo 'Les dépendances ont été installées correctement.'
+                    } else {
+                        error 'Les dépendances n\'ont pas été installées correctement.'
+                    }
+                }
+            }
+        }
+        
+       
     
-}
         stage('build docker img'){
             steps{
                 
