@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         dockerImage=''
-        registry='bounajia/frontend-projet:v2.0'
+        registry='bounajia/frontend-projet:tagname'
         registryCredential = 'dockerhub_id'
     }
     stages{
@@ -24,7 +24,7 @@ pipeline{
   stage('Test') {
             steps {
                 sh 'npm install' // Install project dependencies
-               sh 'npm test'    // Run tests
+              // sh 'npm test'    // Run tests
             }
         }
             

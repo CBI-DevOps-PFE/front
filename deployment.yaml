@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: front
-        image: bounajia/frontend-projet:v2.0
+        image: bounajia/front-app:latest
         ports:
         - containerPort: 8083
             
