@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage('checkout'){
         steps    {
-            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/frontend.git']])
+            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/front.git']])
     }
     
 }
