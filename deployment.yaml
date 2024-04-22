@@ -26,12 +26,11 @@ kind: Service
 metadata:
   name: my-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: front
   ports:
     - protocol: TCP
       port: 8083
       targetPort: 8083
-      nodePort: 30400
       
