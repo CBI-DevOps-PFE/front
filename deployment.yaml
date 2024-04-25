@@ -26,7 +26,7 @@ kind: Service
 metadata:
   name: my-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: front
   ports:
@@ -34,4 +34,6 @@ spec:
       port: 8083
       targetPort: 8083
       nodePort: 30400
+  externalIPs:
+    - 192.168.6.25   
       
