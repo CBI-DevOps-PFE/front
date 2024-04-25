@@ -9,6 +9,7 @@ import Contact from "./Contact";
 import HotelSearch from "./HotelSearch";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./Login";
+import BookingHotel from "./BookingHotel";
 const Home = () => {
   const [content, setContent] = useState("");
 
@@ -35,6 +36,7 @@ const Home = () => {
       <Feature/>
       <About/>
       <Contact/>
+      <BookingHotel/>
       
     </div>
   );
