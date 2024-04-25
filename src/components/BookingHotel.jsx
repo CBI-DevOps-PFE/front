@@ -10,12 +10,11 @@ const BookingHotel = () => {
       xhr.addEventListener('readystatechange', function () {
         if (this.readyState === this.DONE) {
           const responseData = JSON.parse(this.responseText);
-          setLocations(responseData.result);
+          setLocations(responseData);
         }
       });
 
-      // Modifiez l'URL pour rechercher les hôtels à Casablanca, Maroc
-      xhr.open('GET', 'https://apidojo-booking-v1.p.rapidapi.com/locations/auto-complete?text=casablanca&languagecode=en-us');
+      xhr.open('GET', 'https://apidojo-booking-v1.p.rapidapi.com/locations/auto-complete?text=casablanca&languagecode=fr-fr');
       xhr.setRequestHeader('X-RapidAPI-Key', 'd40b7bda54msh466186402de16cbp1a621bjsncb23cedddca2');
       xhr.setRequestHeader('X-RapidAPI-Host', 'apidojo-booking-v1.p.rapidapi.com');
 
@@ -35,27 +34,23 @@ const BookingHotel = () => {
 
   return (
     <div className="booking-container">
-      <h2>Hôtels à Casablanca, Maroc</h2>
-      {locations ? (
-        locations.map((location, index) => (
-          <div className="location-card" key={index}>
-            <img src={location.image} alt={location.name} />
-            <div className="location-details">
-              <h3>{location.name}</h3>
-              <p>{location.description}</p>
-              <p>Adresse: {location.address}</p>
-              <p>Pays: {location.country}</p>
-              <p>Code postal: {location.postalCode}</p>
-              {/* Ajoutez d'autres attributs que vous souhaitez afficher */}
-              <button onClick={() => handleReservation(location.bookingUrl)}>Réserver</button>
-              {/* Utilisez la propriété bookingUrl ou siteUrl de l'objet location pour rediriger l'utilisateur */}
-              {/* <button onClick={() => handleReservation(location.siteUrl)}>Visiter le site</button> */}
-            </div>
+      <h2>Locations</h2>
+      {locations.map((location, index) => (
+        <div className="location-card" key={index}>
+          <img src={location.image} alt={location.name} />
+          <div className="location-details">
+            <h3>{location.name}</h3>
+            <p>{location.description}</p>
+            <p>Adresse: {location.address}</p>
+            <p>Pays: {location.country}</p>
+            <p>Code postal: {location.postalCode}</p>
+            {/* Ajoutez d'autres attributs que vous souhaitez afficher */}
+            <button onClick={() => handleReservation(location.bookingUrl)}>Réserver</button>
+            {/* Utilisez la propriété bookingUrl ou siteUrl de l'objet location pour rediriger l'utilisateur */}
+            {/* <button onClick={() => handleReservation(location.siteUrl)}>Visiter le site</button> */}
           </div>
-        ))
-      ) : (
-        <p>Aucun hôtel trouvé</p>
-      )}
+        </div>
+      ))}
     </div>
   );
 };
