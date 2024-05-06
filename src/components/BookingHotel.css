@@ -1,38 +1,111 @@
-.booking-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.location-card {
+  margin: 20px 0;
+  display: flex; /* Utilisation d'un conteneur flex */
   
-  .location-card {
-    width: 300px;
-    margin: 10px;
-    border: 1px solid #110e0e;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .location-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .location-details {
-    padding: 10px;
-  }
-  
-  .location-details h3 {
-    margin-top: 0;
-  }
-  
-  .location-details p {
-    margin: 5px 0;
-  }
-  .location-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
+
+ 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+}
+
+.location-card img {
+  width: 200px; /* Largeur de l'image */
+  height: 250px; /* Hauteur de l'image */
+  object-fit: cover;
+  border-radius: 10px 0 0 10px; /* Coins arrondis pour l'image */
+}
+
+.location-details {
+  padding: 20px;
+  flex: 1; /* Permet au contenu de s'étendre pour remplir l'espace disponible */
+}
+
+.location-details h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.location-details p {
+  margin-bottom: 20px;
+}
+
+.location-details button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.location-details button:hover {
+  background-color: #0069d9;
+}
+
+
+.center {
+  text-align: center;
+  margin-top: 200px;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px; /* Ajoute une marge supérieure */
+  width: 100%;
+}
+
+
+.search-input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+.center {
+  text-align: center;
+}

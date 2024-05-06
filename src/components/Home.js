@@ -9,7 +9,10 @@ import Contact from "./Contact";
 import HotelSearch from "./HotelSearch";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./Login";
-import BookingHotel from "./BookingHotel";
+import MapContainer from "./MapContainer";
+import ApiHotel from "./ApiHotel";
+import SimpleChatbot from "./MyChatBot";
+
 const Home = () => {
   const [content, setContent] = useState("");
 
@@ -36,7 +39,9 @@ const Home = () => {
       <Feature/>
       <About/>
       <Contact/>
-      <BookingHotel/>
+      <MapContainer/>
+      {/* <ApiHotel/> */}
+      <SimpleChatbot/>
       
     </div>
   );

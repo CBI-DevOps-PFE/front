@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 function Featurebox(props) {
+  const { ville } = props;
+  
   return (
     
-     
+    <Link to={`/BookingHotel/${ville}`}>
     <div className='a-box' >
         <div class='a-b-img'>
             <img src={props.image} alt=''/>
@@ -19,7 +21,7 @@ function Featurebox(props) {
       
       </div>
     </div>
-   
+   </Link>
   )
 }
 

@@ -15,24 +15,24 @@ function Feature() {
         <h1 >VILLES DU MONDIALE</h1>
         <div class="feature-container">
   <div class="feature-box">
-    <Featurebox image={fimage1} title="Rabat" description="Rabat est l'une des principales villes du Maroc, servant de capitale."/>
+    <Featurebox image={fimage1} title="Rabat" description="Rabat est l'une des principales villes du Maroc, servant de capitale." ville="Rabat"/>
   </div>
   <div class="feature-box">
-    <Featurebox image={fimage2} title="Agadir" description="Agadir est une ville côtière. Elle est réputée pour son climat doux tout au long de l'année, ses plages de sable fin."/>
+    <Featurebox image={fimage2} title="Agadir" description="Agadir est une ville côtière. Elle est réputée pour son climat doux tout au long de l'année, ses plages de sable fin." ville="Agadir"/>
   </div>
   <div class="feature-box">
-    <Featurebox image={fimage3} title="Casablanca" description="Casablanca est la plus grande ville du Maroc, réputée pour sa mosquée Hassan II et son importance économique."/>
+    <Featurebox image={fimage3} title="Casablanca" description="Casablanca est la plus grande ville du Maroc, réputée pour sa mosquée Hassan II et son importance économique." ville="Casablanca"/>
   </div>
 </div>
 <div class="feature-container">
   <div class="feature-box">
-    <Featurebox image={fimage4} title="Marrakech" description="Marrakech est une ville du Maroc, réputée pour sa médina, ses souks animés, ses palais historiques."/>
+    <Featurebox image={fimage4} title="Marrakech" description="Marrakech est une ville du Maroc, réputée pour sa médina, ses souks animés, ses palais historiques." ville="Marrakech"/>
   </div>
   <div class="feature-box">
-    <Featurebox image={fimage5} title="Tanger" description="Tanger, ville côtière du nord du Maroc, est un carrefour culturel entre l'Afrique et l'Europe."/>
+    <Featurebox image={fimage5} title="Tanger" description="Tanger, ville côtière du nord du Maroc, est un carrefour culturel entre l'Afrique et l'Europe." ville="Tanger"/>
   </div>
   <div class="feature-box">
-    <Featurebox image={fimage6} title="Fès" description="Fès, ville impériale du Maroc, est renommée pour sa médina médiévale."/>
+    <Featurebox image={fimage6} title="Fès" description="Fès, ville impériale du Maroc, est renommée pour sa médina médiévale." ville="Fès"/>
   </div>
 </div>
 

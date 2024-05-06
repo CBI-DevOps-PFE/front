@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Link as SLink } from 'react-scroll';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import logo  from './images/logo.png';
-
+import logo  from './images/logo (3).png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
@@ -13,11 +14,12 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
-
+import BookingHotel from "./components/BookingHotel";
 import { logout } from "./slices/auth";
-
+import user from "./images/user.png"
 import EventBus from "./common/EventBus";
 
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 const App = () => {
   const [nav,setnav]= useState(false);
 const changeBachground = ()=>{
@@ -67,7 +69,7 @@ const changeBachground = ()=>{
     <span className='nav-icon'></span>
     
     <ul className='menu'>
-        <li><SLink to='main' smooth={true} duration={1000}>Home</SLink></li>
+        <li><SLink to='main'  smooth={true} duration={1000}>Home</SLink></li>
         <li><SLink to='features' smooth={true} duration={1000}>Villes</SLink></li>
        <li><SLink to='#' smooth={true} duration={1000}>Offer</SLink></li>
         <li><SLink to='about' smooth={true} duration={1000}>About</SLink></li>
@@ -78,9 +80,9 @@ const changeBachground = ()=>{
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
+              {/* <Link to={"/home"} className="nav-link">
                 Home
-              </Link>
+              </Link> */}
             </li>
 
             {showModeratorBoard && (
@@ -125,13 +127,15 @@ const changeBachground = ()=>{
 < div className='menu'>
               <li >
                 <Link to={"/login"} className="nav-link">
-                  Login
+                <FontAwesomeIcon icon={faUser} style={{ fontSize: '25px', color: 'red' }} />
+    {/* Login */}
                 </Link>
               </li>
 
               <li >
                 <Link to={"/register"} className="nav-link">
-                  Sign Up
+                <FontAwesomeIcon icon={faUserPlus} style={{ fontSize: '24px', color: 'red' }} />
+    {/* Signup */}
                 </Link>
               </li>
               </div>   
@@ -148,6 +152,8 @@ const changeBachground = ()=>{
             <Route path="/user" element={<BoardUser />} />
             <Route path="/mod" element={<BoardModerator />} />
             <Route path="/admin" element={<BoardAdmin />} />
+            <Route path="/BookingHotel" element={<BookingHotel />} />
+            <Route path="/BookingHotel/:ville" element={<BookingHotel />} />
           </Routes>
         </div>
       </div>
