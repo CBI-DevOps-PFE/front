@@ -34,6 +34,6 @@ spec:
     - protocol: TCP
       port: 8083
       targetPort: 8083
-      nodePort: 30400
+      
   
       
