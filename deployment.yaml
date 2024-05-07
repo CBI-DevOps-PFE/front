@@ -26,6 +26,7 @@ kind: Service
 metadata:
   name: my-service
 spec:
+  loadBalancerIP: 172.29.0.1
   type: LoadBalancer
   selector:
     app: front
