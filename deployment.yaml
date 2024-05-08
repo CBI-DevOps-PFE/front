@@ -4,7 +4,7 @@ metadata:
   name: my-ingress
 spec:
   rules:
-  - host: app.com   # Replace 'example.com' with a valid DNS name
+  - host: marocapp.com   # Replace 'example.com' with a valid DNS name
     http:
       paths:
       - path: /api   # Replace `/your-path` with your actual path
