@@ -1,28 +1,30 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-function Featurebox(props) {
-  const { ville } = props;
-  
-  return (
-    
-    <Link to={`/BookingHotel/${ville}`}>
-    <div className='a-box' >
-        <div class='a-b-img'>
-            <img src={props.image} alt=''/>
+function Featurebox({ ville, image, description, title, isLoggedIn }) {
+  const handleCityClick = () => {
+    if (!isLoggedIn) {
+      const confirmLogin = window.confirm('Please log in to book. Would you like to log in now?');
+      if (confirmLogin) {
+        // Redirect to login page
+        window.location.href = '/login'; // Replace '/login' with your actual login page URL
+      }
+    }
+  };
 
+  return (
+    <Link to={isLoggedIn ? `/BookingHotel/${ville}` : '#'}>
+      <div className='a-box' onClick={handleCityClick}>
+        <div className='a-b-img'>
+          <img src={image} alt='' />
         </div>
         <div className='a-b-text'>
-        <p>{props.description}</p>
-      <h2>
-        {props.title}
-      </h2>
-      
+          <p>{description}</p>
+          <h2>{title}</h2>
+        </div>
       </div>
-    </div>
-   </Link>
-  )
+    </Link>
+  );
 }
 
 export default Featurebox;

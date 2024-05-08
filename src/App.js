@@ -154,6 +154,7 @@ const changeBachground = ()=>{
             <Route path="/admin" element={<BoardAdmin />} />
             <Route path="/BookingHotel" element={<BookingHotel />} />
             <Route path="/BookingHotel/:ville" element={<BookingHotel />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </div>
