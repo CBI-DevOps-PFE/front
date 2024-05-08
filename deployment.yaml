@@ -51,6 +51,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: my-service
+                name: aaaaaa
                 port:
                   number: 8083
