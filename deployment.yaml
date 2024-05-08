@@ -4,16 +4,17 @@ metadata:
   name: my-ingress
 spec:
   rules:
-  - host: 192.168.6.25
+  - host: app.com   # Replace 'example.com' with a valid DNS name
     http:
       paths:
-      - path: /api
+      - path: /api   # Replace `/your-path` with your actual path
         pathType: Prefix
         backend:
           service:
-            name: Ingress-service
+            name: ingress-service   # Replace 'ingress-service' with a valid service name
             port:
               number: 8083
+
 
 
 
