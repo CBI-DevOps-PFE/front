@@ -11,7 +11,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: ingress-service   # Replace 'ingress-service' with a valid service name
+            name: my-service
             port:
               number: 8083
 
