@@ -11,7 +11,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: front-service
+            name: service1
             port:
               number: 8083
 
