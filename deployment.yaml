@@ -13,7 +13,7 @@ spec:
           service:
             name: service1
             port:
-              number: 8083
+              number: 8080
 
 
 
