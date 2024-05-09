@@ -13,7 +13,7 @@ spec:
           service:
             name: front-deployment
             port:
-              number: 8083
+              number: 80
 
 
 
