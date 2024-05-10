@@ -4,8 +4,7 @@ metadata:
   name: my-ingress
 spec:
   rules:
-  - host: marocapp.com   # Replace 'example.com' with a valid DNS name
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
@@ -14,9 +13,3 @@ spec:
             name: front-deployment
             port:
               number: 8083
-
-
-
-
-          
-      
