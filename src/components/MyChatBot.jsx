@@ -8,7 +8,7 @@ const theme = {
     headerBgColor: '#ff0000',
     headerFontColor: '#fff',
     headerFontSize: '15px',
-    botBubbleColor: '#ff0000', // Red color
+    botBubbleColor: '#ff0000',
     botFontColor: '#fff',
     userBubbleColor: '#fff',
     userFontColor: '#4a4a4a',
@@ -23,74 +23,50 @@ const config = {
 const steps = [
   {
     id: 'welcome',
-    message: 'Welcome! Comment puis-je vous aider aujourd\'hui?',
+    message: 'Welcome! How can I help you today?',
     trigger: 'options',
   },
   {
     id: 'options',
     options: [
-      { value: 1, label: 'Infos sur le Maroc', trigger: 'marocDescription' },
-      { value: 2, label: 'Infos sur les villes', trigger: 'villeOptions' },
-      { value: 3, label: 'Description du site web', trigger: 'siteDescription' },
+      { value: 1, label: 'Information about Morocco', trigger: 'moroccoInfo' },
+      { value: 2, label: 'Information about cities', trigger: 'cityInfo' },
+      { value: 3, label: 'Dining and Cuisine', trigger: 'diningInfo' },
+      { value: 4, label: 'Outdoor Activities and Adventure', trigger: 'outdoorInfo' },
+      { value: 5, label: 'Shopping and Souvenirs', trigger: 'shoppingInfo' },
+      { value: 6, label: 'Cultural Events and Festivals', trigger: 'culturalInfo' },
     ],
   },
   {
-    id: 'marocDescription',
-    message: 'Le Maroc est un pays d\'Afrique du Nord connu pour sa diversité culturelle et sa riche histoire. Il est célèbre pour ses villes impériales, ses plages magnifiques, ses montagnes majestueuses et son désert spectaculaire.',
-    trigger: 'showAllOptions',
-  },
-  {
-    id: 'villeOptions',
-    message: 'Quelle ville voudriez-vous en savoir plus?',
-    trigger: 'villeChoice',
-  },
-  {
-    id: 'villeChoice',
-    options: [
-      { value: 'casablanca', label: 'Casablanca', trigger: 'showAllOptions' },
-      { value: 'tanger', label: 'Tanger', trigger: 'tangerDescription' },
-      { value: 'fes', label: 'Fès', trigger: 'fesDescription' },
-      { value: 'agadir', label: 'Agadir', trigger: 'agadirDescription' },
-      { value: 'rabat', label: 'Rabat', trigger: 'rabatDescription' },
-      { value: 'marrakech', label: 'Marrakech', trigger: 'marrakechDescription' },
-    ],
-  },
-  {
-    id: 'showAllOptions',
-    message: 'Voici toutes les options disponibles:',
+    id: 'moroccoInfo',
+    message: 'Morocco is a North African country known for its cultural diversity and rich history.',
     trigger: 'options',
   },
   {
-    id: 'siteDescription',
-    message: 'Ce site web est une plateforme qui fournit des informations sur le Maroc, ses villes et diverses autres fonctionnalités. Il est conçu pour vous aider à découvrir et à explorer le Maroc de manière interactive.',
-    trigger: 'showAllOptions',
+    id: 'cityInfo',
+    message: 'Morocco has many beautiful cities, each with its own unique charm and attractions. Some popular cities to explore include Casablanca, Marrakech, Fes, and Rabat.',
+    trigger: 'options',
   },
   {
-    id: 'tangerDescription',
-    message: 'Tanger est une ville portuaire du nord du Maroc, connue pour son mélange unique de cultures africaines et européennes. Elle est célèbre pour sa médina pittoresque et son histoire fascinante.',
-    trigger: 'showAllOptions',
+    id: 'diningInfo',
+    message: 'Moroccan cuisine is renowned for its flavorful tagines, couscous dishes, and aromatic spices. Some must-try dishes include tagine with lamb and prunes, couscous with vegetables, and pastilla (a savory pie with layers of pastry, meat, and spices). I can recommend popular restaurants in various cities known for their authentic Moroccan cuisine!',
+    trigger: 'options',
   },
   {
-    id: 'fesDescription',
-    message: 'Fès est l\'une des quatre villes impériales du Maroc, réputée pour sa vieille ville historique, sa médina médiévale préservée et ses artisans traditionnels.',
-    trigger: 'showAllOptions',
+    id: 'outdoorInfo',
+    message: 'Morocco offers a wide range of outdoor adventures for thrill-seekers! You can explore the stunning landscapes of the Atlas Mountains, embark on a desert safari in the Sahara, or enjoy water sports along the Atlantic coast. Let me know your preferences, and I can suggest exciting activities and tour operators to make your adventure unforgettable!',
+    trigger: 'options',
   },
   {
-    id: 'agadirDescription',
-    message: 'Agadir est une ville balnéaire située sur la côte atlantique du Maroc, réputée pour ses plages de sable doré, son climat ensoleillé et ses stations balnéaires modernes.',
-    trigger: 'showAllOptions',
+    id: 'shoppingInfo',
+    message: 'Shopping in Morocco is a delightful experience, with bustling souks (markets) offering a variety of goods, from vibrant textiles and intricate ceramics to handcrafted leather goods and spices. I can recommend popular souks to visit in various cities and suggest unique souvenirs to commemorate your trip!',
+    trigger: 'options',
   },
   {
-    id: 'rabatDescription',
-    message: 'Rabat est la capitale politique du Maroc, située sur la côte atlantique. Elle est connue pour son architecture mauresque, ses jardins luxuriants et sa médina animée.',
-    trigger: 'showAllOptions',
+    id: 'culturalInfo',
+    message: 'Morocco hosts numerous cultural events and festivals throughout the year, showcasing its rich heritage and diverse traditions. Whether you\'re interested in music, art, or religious celebrations, there\'s always something happening in Morocco. I can provide you with a calendar of upcoming events and help you plan your itinerary around these exciting festivals!',
+    trigger: 'options',
   },
-  {
-    id: 'marrakechDescription',
-    message: 'Marrakech est l\'une des villes les plus célèbres du Maroc, réputée pour sa médina animée, ses souks colorés, ses palais historiques et sa place Jemaa el-Fna.',
-    trigger: 'showAllOptions',
-  },
-  
 ];
 
 const SimpleChatbot = () => (

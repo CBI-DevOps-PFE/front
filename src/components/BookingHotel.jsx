@@ -30,7 +30,7 @@ const BookingHotel = () => {
         }
       });
       xhr.open('GET', `https://apidojo-booking-v1.p.rapidapi.com/locations/auto-complete?text=${ville} ${searchQuery} maroc &languagecode=fr-fr`);
-      xhr.setRequestHeader('X-RapidAPI-Key', 'd40b7bda54msh466186402de16cbp1a621bjsncb23cedddca2');
+      xhr.setRequestHeader('X-RapidAPI-Key', '3debc2c8abmshb76cc1734b99647p1aefa8jsn5d69f9be3ebf');
       xhr.setRequestHeader('X-RapidAPI-Host', 'apidojo-booking-v1.p.rapidapi.com');
       xhr.withCredentials = false;
       xhr.send();
@@ -59,7 +59,7 @@ const BookingHotel = () => {
   return (
     <div className="booking-container">
       <div className="center">
-        <h2>Welcome to {ville}</h2>
+        <h2 >Welcome to {ville}</h2>
       </div>
       <hr />
       <div className="search-container center">

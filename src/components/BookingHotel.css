@@ -1,12 +1,9 @@
 .location-card {
-  margin: 20px 0;
+  margin: 0px 0;
   display: flex; /* Utilisation d'un conteneur flex */
-  
-
- 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  padding: 20px;
+  padding: 0px;
   width: 100%;
 }
 
@@ -47,7 +44,7 @@
 
 .center {
   text-align: center;
-  margin-top: 200px;
+  margin-top: 20px;
 }
 .search-container {
   display: flex;
@@ -109,3 +106,4 @@
 .center {
   text-align: center;
 }
+

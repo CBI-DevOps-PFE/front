@@ -13,8 +13,8 @@ function Featurebox({ ville, image, description, title, isLoggedIn }) {
   };
 
   return (
-    <Link to={isLoggedIn ? `/BookingHotel/${ville}` : '#'}>
-      <div className='a-box' onClick={handleCityClick}>
+    <Link to={ `/BookingHotel/${ville}` }>
+      <div className='a-box' >
         <div className='a-b-img'>
           <img src={image} alt='' />
         </div>
