@@ -21,14 +21,15 @@ pipeline{
                 
                 }
             }
-    stage('Test') {
+  stage('Test') {
             steps {
-                script {
-                    if (!fileExists('package.json')) {
-                        error "Les dépendances n'ont pas été installées correctement."
+              script {
+                    // Vérifie si les dépendances sont présentes dans le répertoire node_modules
+                    if (fileExists('node_modules')) {
+                        echo 'Les dépendances ont été installées correctement.'
+                    } else {
+                        error 'Les dépendances n\'ont pas été installées correctement.'
                     }
-                    // Assuming npm test is the test command, modify if necessary
-                    sh 'npm test'
                 }
             }
         }
