@@ -2,13 +2,13 @@ pipeline{
     agent any
     environment{
         dockerImage=''
-        registry='bounajia/frontend-projet:v2.0'
+        registry='bounajia/front-app:latest'
         registryCredential = 'dockerhub_id'
     }
     stages{
         stage('checkout'){
         steps    {
-            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/frontend.git']])
+            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/front.git']])
     }
     
 }
@@ -21,9 +21,9 @@ pipeline{
                 
                 }
             }
- stage('Test des dépendances installées') {
+  stage('Test') {
             steps {
-                script {
+              script {
                     // Vérifie si les dépendances sont présentes dans le répertoire node_modules
                     if (fileExists('node_modules')) {
                         echo 'Les dépendances ont été installées correctement.'
@@ -32,7 +32,7 @@ pipeline{
                     }
                 }
             }
-        
+        }
             
         stage('uploading img'){
             steps{
