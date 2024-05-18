@@ -37,8 +37,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -54,7 +53,6 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^15.0.2",
     "react-scripts": "^3.0.1"
   }
