@@ -2,11 +2,12 @@ FROM  node:latest
 
 WORKDIR /app
 
-COPY . .
+COPY package.json .
 
 
 RUN npm install  --force
 
+COPY . . 
 
 EXPOSE 8083
 
