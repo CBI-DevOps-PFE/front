@@ -1,16 +1,14 @@
-FROM  node:latest 
+FROM  node:18.18.0
 
 WORKDIR /app
 
 COPY package.json .
 
-
-RUN npm install 
+RUN npm install
 
 COPY . . 
 
 EXPOSE 8083
 
 CMD [ "npm" , "start" ]
-
 
