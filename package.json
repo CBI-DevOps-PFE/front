@@ -55,5 +55,10 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/react": "^15.0.2",
     "react-scripts": "^5.0.1"
+  },
+  "resolutions": {
+    "react-google-maps/react": "^18.2.0",
+    "react-google-maps/react-dom": "^18.2.0",
+    "react-simple-chatbot/styled-components": "^6.1.9"
   }
 }
