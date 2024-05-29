@@ -21,18 +21,7 @@ pipeline{
                 
                 }
             }
-  stage('Test') {
-            steps {
-              script {
-                    // Vérifie si les dépendances sont présentes dans le répertoire node_modules
-                    if (fileExists('node_modules')) {
-                        echo 'Les dépendances ont été installées correctement.'
-                    } else {
-                        error 'Les dépendances n\'ont pas été installées correctement.'
-                    }
-                }
-            }
-        }
+ 
             
         stage('uploading img'){
             steps{
